@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Spring Thyme Seed Starter Manager</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <!--<link rel="stylesheet" type="text/css" media="all" href="../../css/main.css" th:href="@{/css/main.css}"/>-->
+
+</head>
+<body>
+<img src="../../images/jt_net.png" th:attr="src=@{images/jt_net.png}"/>
+
+<h2 th:text="${title}">Title</h2>
+<h2 th:text="${i}">Title</h2>
+
+<table>
+    <tr th:text="${program.name}">program</tr>
+</table>
+<table>
+    <tr th:text="${countModules}">program</tr>
+</table>
+<div>
+    <form action="/" method="post" >
+        <button style="height:100px;width:200px" th:each="Module : ${ListModules}" > Module# <span th:text="${Module.id}"/> <br/> <span th:text="${Module.name}"/> </button>
+        <div>
+            <ul>
+                <li th:each="Topic : ${topicList}" th:text="${Topic.nameTopic}">
+                </li>
+            </ul>
+        </div>
+    </form>
+</div>
+
+
+</body>
+</html>
