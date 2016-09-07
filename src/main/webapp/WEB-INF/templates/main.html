@@ -3,6 +3,8 @@
 <head>
     <title>Spring Thyme Seed Starter Manager</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <script src="../../js/jquery-2.2.3.min.js"></script>
+    <script src="../../js/main.js"></script>
     <!--<link rel="stylesheet" type="text/css" media="all" href="../../css/main.css" th:href="@{/css/main.css}"/>-->
 
 </head>
@@ -12,21 +14,33 @@
 <h2 th:text="${title}">Title</h2>
 <h2 th:text="${i}">Title</h2>
 
+<div id="message"></div>
+
 <table>
     <tr th:text="${program.name}">program</tr>
 </table>
 <table>
     <tr th:text="${countModules}">program</tr>
 </table>
+<table>
+    <tr th:text="${num}">program</tr>
+</table>
 <div>
-    <form action="/" method="post" >
-        <button style="height:100px;width:200px" th:each="Module : ${ListModules}" > Module# <span th:text="${Module.id}"/> <br/> <span th:text="${Module.name}"/> </button>
+    <form method="post" action="/toTopic">
+        <button name="moduleId" class="button" style="height:100px;width:200px" th:id="${Module.id}"  th:each="Module : ${listModules}"> Module# <span th:text="${Module.id}"/> <br/> <span th:text="${Module.name}"/> </button>
         <div>
             <ul>
-                <li th:each="Topic : ${topicList}" th:text="${Topic.nameTopic}">
+                <li th:each="Topic : ${listTopics}" th:text="${Topic.nameTopic}">
                 </li>
             </ul>
         </div>
+    </form>
+</div>
+
+<div>
+    <form method="post" action="/toNum">
+        <input type="number" name="num" max="4" min="1"/>
+        <input type="submit"/>
     </form>
 </div>
 
