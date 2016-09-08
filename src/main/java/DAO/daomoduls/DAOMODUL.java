@@ -33,7 +33,6 @@ public class DAOMODUL {
             setTopicListToModul(topicNuber, topicsModul);
             String name = "Modul№" + modulID;
             moduls.add(new Modul(modulID, name, topicsModul));
-            System.out.println(topicsModul);
             topicNuber = topicNuber + 3;
         }
     }
